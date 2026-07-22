@@ -1,5 +1,5 @@
 ---
-description: Tailor the resume, generate LinkedIn outreach, and log the application run
+description: Tailor the resume, generate LinkedIn outreach, evaluate screening risks, and log the application run
 agent: build
 subtask: true
 ---
