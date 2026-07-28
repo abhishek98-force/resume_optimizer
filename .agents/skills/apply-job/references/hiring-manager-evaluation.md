@@ -15,9 +15,10 @@ Be direct. Do not write a promotional summary. The value of this artifact is the
 3. Run ID, passed explicitly, such as `Amazon_002`
 4. Sanitized company name used in file paths. Strip spaces, slashes, and path-unsafe characters.
 5. Master resume
-6. Tailored resume
-7. Patch file
-8. Reduction file when present
+6. Indexed evidence-bank files used during tailoring, when present
+7. Tailored resume
+8. Patch file
+9. Reduction file when present
 
 Do not infer target seniority from the job description alone.
 
@@ -74,6 +75,7 @@ Use this as a check distinct from the deeper engineering evaluation. Do not let 
 ## Evaluation Rules
 
 - Judge the tailored resume against the job description, not against generic software engineering expectations.
+- Base the screen decision on evidence visible in the tailored resume. Verified evidence left only in the evidence bank may support a suggested fix, but it does not count as recruiter-visible or hiring-manager-visible evidence.
 - Calibrate all expectations to the explicit target level. For this project, the default target is `junior-mid`, reflecting roughly 2 years of professional experience excluding internships.
 - Some production evidence is a fair expectation for junior/mid applications; do not demand senior-level ownership scope, incident handling, or reliability depth beyond what the job description requires.
 - Projects, coursework, and open source may support the resume, but they should not be the primary evidence at this level when relevant professional experience exists.
@@ -82,7 +84,11 @@ Use this as a check distinct from the deeper engineering evaluation. Do not let 
 - Do not invent concerns. If a risk is based on absence of evidence, say so explicitly. A strong-fit resume may legitimately have few red flags; do not pad the critique.
 - Distinguish between a real weakness and a missing proof point.
 - Treat unsupported keyword alignment as a risk, not a strength.
-- Cross-check the tailored resume against the patch and reduction files. Flag any technology, metric, scope, or claim introduced during tailoring that is not supported by the master resume as a credibility risk.
+- Cross-check the tailored resume against the master resume, indexed verified evidence, patch, and reduction files. Flag any technology, metric, scope, or claim unsupported by both the master resume and verified evidence as a credibility risk.
+- Confirm that every evidence-bank claim used by the tailored resume came from a `## Verified Evidence` section. Draft, details-to-add, needs-verification, placeholder, or unanswered content is unsupported.
+- Flag a tailored claim when a matching evidence-bank item is under `## Needs Verification`, even if the claim also appears in the master resume.
+- Enforce all applicable `## Truth Boundaries` when checking wording and implied scope.
+- Distinguish verified evidence omitted from the tailored resume from truly missing evidence. Omitted evidence can justify a suggested resume fix, but not a stronger current screen decision.
 - Include role-seniority fit, production depth, ownership scope, stack match, collaboration evidence, testing/debugging evidence, and business/product impact.
 - Comment on formatting, page length, density, or visual layout only if the resume is available in a format where those properties can actually be observed. If the resume is passed as plain text or Markdown, do not critique visual layout you cannot see.
 - Call out if the resume leans too heavily on academic projects, selected projects, open source, or short internships for the target role.
@@ -103,7 +109,7 @@ Use this as a check distinct from the deeper engineering evaluation. Do not let 
 - Resume reads keyword-aligned but not role-specific enough
 - Formatting, length, density, or readability issues that could hurt screening, only when those properties are observable
 - Gaps between the strongest resume evidence and the job's highest-priority responsibilities
-- Tailored resume claims, metrics, technologies, or scope that are not supported by the master resume
+- Tailored resume claims, metrics, technologies, or scope that are not supported by the master resume or indexed verified evidence
 
 ## Suggested Fixes
 
@@ -111,8 +117,8 @@ For every significant red flag, suggest the smallest truthful fix:
 
 - Reorder a bullet
 - Shorten or clarify a bullet
-- Add supported context from the master resume if available
-- Remove or correct tailored claims that are not supported by the master resume
+- Add supported context from the master resume or verified evidence if available
+- Remove or correct tailored claims that are not supported by the master resume or verified evidence
 - Remove or de-emphasize weaker content
 - Mention a missing point only if the candidate can truthfully support it elsewhere
 

@@ -8,9 +8,11 @@
 
 ## Project Rules
 
+- Use `MASTER_RESUME.docx` as the canonical resume for all new tailoring runs.
 - Never overwrite or modify `MASTER_RESUME.docx`.
-- Keep every resume and outreach claim truthful and supported by the source resume.
-- Preserve the master resume's formatting rather than forcing content onto one page.
+- Keep every resume and outreach claim truthful and supported by `MASTER_RESUME.docx` or content under `## Verified Evidence` in an indexed `evidence/*.md` file.
+- Treat `evidence/README.md` as the evidence-bank index. Ignore draft, details-to-add, and needs-verification sections as factual sources.
+- Preserve the canonical resume's formatting rather than forcing content onto one page.
 - Resolve job paths relative to the project root. If a user supplies `/jobs/<file>.txt`, use `jobs/<file>.txt` when `/jobs/` does not exist.
 - Keep `runs/apply_job_runs.json` append-only.
 - Do not replace prior tailored outputs; create the next company-specific run directory.

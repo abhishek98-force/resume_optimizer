@@ -1,6 +1,6 @@
 # Resume Optimizer Reference
 
-Tailor `MASTER_RESUME.docx` to the provided job description with extreme precision.
+Tailor `MASTER_RESUME.docx` to the provided job description with extreme precision, using indexed verified evidence as an optional supplemental factual source.
 
 ## Primary Goal
 
@@ -18,20 +18,26 @@ Formatting preservation is more important than forcing one-page output. If conte
 
 1. Read `MASTER_RESUME.docx`.
 2. Read the provided job-description file.
-3. Duplicate the master resume and edit only the duplicate.
-4. Create `tailored/<CompanyName>_<UniqueNumber>/Abhishek_Unnithan_Resume.docx`.
-5. Create `patches/Abhishek_<CompanyName>_patch.md`.
-6. If one-page fit is not possible without formatting changes, create `patches/Abhishek_<CompanyName>_reduce.md`.
-7. Validate all required relevance-audit sections before considering the output complete.
+3. Read `evidence/README.md` and every indexed evidence file that exists.
+4. Use only content under `## Verified Evidence` as supplemental factual evidence. Ignore drafts, details-to-add, needs-verification sections, unanswered prompts, and placeholders.
+5. Treat needs-verification items as blockers for matching claims and truth-boundary sections as mandatory constraints.
+6. Duplicate the master resume and edit only the duplicate.
+7. Create `tailored/<CompanyName>_<UniqueNumber>/Abhishek_Unnithan_Resume.docx`.
+8. Create `patches/Abhishek_<CompanyName>_patch.md`.
+9. If one-page fit is not possible without formatting changes, create `patches/Abhishek_<CompanyName>_reduce.md`.
+10. Validate all required relevance-audit and evidence-traceability sections before considering the output complete.
 
 ## Non-Negotiable Rules
 
 ### Zero Fabrication
 
 - Never invent experience.
-- Never add technologies, tools, ownership, scale, metrics, or achievements unsupported by the master resume.
+- Never add technologies, tools, ownership, scale, metrics, or achievements unsupported by the master resume or indexed verified evidence.
 - Never imply the candidate performed work they did not do.
 - If uncertain, omit rather than assume.
+- Never use content from draft, details-to-add, or needs-verification sections as evidence.
+- Do not use a master-resume claim that is explicitly flagged under `## Needs Verification` until the user resolves it.
+- Follow every applicable `## Truth Boundaries` constraint.
 
 ### Preserve Bullet Meaning
 
@@ -39,12 +45,15 @@ Formatting preservation is more important than forcing one-page output. If conte
 - Rewrite only for clarity, brevity, ATS alignment, grammar, or stronger impact wording.
 - Keep the meaning identical.
 
-### Golden Source
+### Approved Sources
 
-- Treat the master resume as high-quality source material.
+- Treat the master resume as high-quality source material and the visual source of truth.
+- Treat only content under `## Verified Evidence` in files indexed by `evidence/README.md` as approved supplemental facts.
 - Reuse its phrasing whenever possible.
 - Keep its original tone and style.
 - Never overwrite `MASTER_RESUME.docx`.
+- Do not modify evidence-bank files during tailoring.
+- If approved sources conflict, use only the narrower non-conflicting facts or ask the user to resolve the conflict.
 
 ## Relevance Rules
 
@@ -93,6 +102,8 @@ Do not redesign or rebuild the document, insert awkward line breaks, randomly bo
 Allowed actions are limited to:
 
 - Replacing bullet text without changing factual meaning
+- Adding a concise bullet supported by verified evidence while cloning the master resume's existing paragraph and list formatting
+- Adding a relevant role supported by verified evidence while cloning existing role-heading and bullet formatting and preserving truthful chronology
 - Reordering bullets
 - Reordering jobs
 - Reordering skills
@@ -129,8 +140,11 @@ The patch file must include:
 9. Relevance audit per role: top three bullets in final order and bottom two bullets with keep/remove rationale
 10. Before-to-after bullet-order mapping for every role touched
 11. Explicit justification for every role left unreordered
+12. Evidence-bank sources used, with the specific verified facts taken from each file
+13. Relevant verified evidence not used, with the reason it was omitted
+14. Evidence conflicts or needs-verification items encountered; write `None` when there were none
 
-If items 9 through 11 are missing, the tailoring output is invalid and must be redone.
+If items 9 through 14 are missing, the tailoring output is invalid and must be redone.
 
 ## Resume Result
 
@@ -145,6 +159,8 @@ Report:
 7. Per-role relevance audit
 8. Before-to-after bullet mappings
 9. Justification for any unreordered role
+10. Evidence-bank files used
+11. Relevant verified evidence omitted for space or relevance
 
 Decision priority:
 
